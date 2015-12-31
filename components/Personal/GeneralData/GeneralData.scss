@@ -1,0 +1,74 @@
+@import '../../variables.scss';
+
+#General-data {
+  display: flex;
+
+  $height: 30em;
+  height: $height;
+
+  .image-card, .stat-card {
+    transform: skewX(-10deg);
+    margin: 0.5em;
+  }
+  .image-card {
+    flex-grow: 1;
+    height: 100%;
+    margin: 0.5em;
+    overflow: hidden;
+
+    background-position-y: 0%;
+    background-position-x: 50%;
+    &:first-child {
+      margin-left: 2.5em;
+    }
+    &:last-child {
+      margin-right: 2.5em;
+    }
+
+    &:hover {
+      flex-grow: 1.05;
+    }
+
+    .title {
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+
+      line-height: 10em;
+      text-align: center;
+
+      font-size: 3em;
+      color: $body-bg;
+      text-shadow: 0 0 5px rgba(0,0,0, 0.5);
+    }
+  }
+
+  .stat-card {
+    flex-grow: 2;
+  }
+
+  .closed {
+    margin: 0;
+    flex-grow: 0;
+  }
+
+  .open.image-card:hover {
+    flex-grow: 1;
+  }
+
+  .best-hero-image {
+    background-image: url(http://bnetus-a.akamaihd.net/overwatch/static/media/artwork/mei-concept.14NDF.jpg);
+  }
+
+  .best-map-image {
+    background-image: url(http://hydra-media.cursecdn.com/overwatch.gamepedia.com/thumb/e/ec/Dorado-streets2.jpg/1600px-Dorado-streets2.jpg);
+    background-size: cover;
+  }
+
+  .general-stats-image {
+    background-image: url(http://bnetus-a.akamaihd.net/overwatch/static/media/artwork/genji-concept.1fuJc.jpg);
+  }
+}

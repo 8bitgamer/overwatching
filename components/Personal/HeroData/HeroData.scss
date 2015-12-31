@@ -1,0 +1,70 @@
+@import '../../variables.scss';
+@import '../../standards.scss';
+
+#HeroData {
+  .Heroes {
+    list-style: none;
+    padding: 0;
+  }
+
+  .Hero-tile {
+    $height: 10em;
+    height: $height;
+    margin-bottom: 1em;
+    display: flex;
+    flex-wrap: wrap;
+
+    &:hover {
+      .portrait {
+        transform: scale(1.1);
+      }
+      box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+    }
+
+    .portrait-wrapper {
+      height: 100%;
+      width: 18em;
+      overflow: hidden;
+
+      .portrait {
+        height: 100%;
+        transition: 0.25s ease-in-out;
+      }
+    }
+
+
+    .stat-section {
+      list-style: none;
+      padding: 0;
+      flex-grow: 1;
+      &:nth-child(n+3) {
+        margin-left: 1em;
+      }
+
+      .stat {
+        padding: 0.66em;
+        display: flex;
+        justify-content: space-between;
+      }
+      .win-rate:before {
+        content: 'Win Rate: ';
+      }
+      .wins:before {
+        content: 'Wins: ';
+      }
+      .losses:before {
+        content: 'Losses: ';
+      }
+      .total-games:before {
+        content: 'Total Games: ';
+      }
+      .best-map::before {
+        content: 'Best Map: ';
+      }
+      .class-rank::before {
+        content: 'Class Rank: ';
+      }
+    }
+
+  }
+}

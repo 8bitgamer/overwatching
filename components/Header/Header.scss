@@ -1,0 +1,49 @@
+@import '../variables.scss';
+
+#Header {
+  display: flex;
+  flex-direction: row;
+  margin: 2em 0 5em 0;
+  justify-content: space-between;
+
+  .Logo {
+    .color-1 {
+      color: $style-color-1;
+    }
+
+    text-transform: uppercase;
+    font-size: 2em;
+  }
+
+  .Nav {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: flex-end;
+
+    .Nav-item {
+      padding: 0 1em;
+
+      .Nav-link {
+        padding: 0.5em 0.5em;
+        color: $text-color;
+        text-decoration: none;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &.color-1:hover {
+          border-bottom: 3px solid $style-color-1;
+        }
+        &.color-2:hover {
+          border-bottom: 3px solid $style-color-2;
+        }
+        &.color-3:hover {
+          border-bottom: 3px solid $style-color-3;
+        }
+        &.color-4:hover {
+          border-bottom: 3px solid $style-color-4;
+        }
+      }
+    }
+  }
+}

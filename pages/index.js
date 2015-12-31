@@ -11,8 +11,12 @@ export default class extends Component {
   render() {
     return (
       <div>
-        <h1>Home Page</h1>
-        <p>Coming soon.</p>
+        <h1>Welcome</h1>
+        <p>
+          Overwatching is a web app designed to allow you to better keep track of your Overwatch statistics.
+          It also provides statistical analysis so that you can better understand what play patterns resulted in the best results,
+          all together helping you become a better players.
+          </p>
       </div>
     );
   }
