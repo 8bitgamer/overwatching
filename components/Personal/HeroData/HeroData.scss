@@ -46,6 +46,9 @@
         display: flex;
         justify-content: space-between;
       }
+      .empty {
+        height: 1em;
+      }
       .win-rate:before {
         content: 'Win Rate: ';
       }
