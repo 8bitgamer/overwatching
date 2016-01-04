@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Add from '../Add';
 import HeroData from './HeroData';
 import GeneralData from './GeneralData';
 import Filter from './Filter';
@@ -134,6 +135,7 @@ class Personal extends Component {
             <h1>Hero Data</h1>
             <HeroData data={data} filter={this.state.filter}/>
           </div>) : ''}
+        <Add />
       </div>
     );
   }

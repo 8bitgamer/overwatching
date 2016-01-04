@@ -1,0 +1,42 @@
+@import '../variables.scss';
+$height: 1.5em;
+$shadow: 0 0 10px rgba(0,0,0,0.2);
+
+#add {
+  position: fixed;
+  right: 4em;
+  bottom: 4em;
+  z-index: 2;
+
+  text-align: center;
+  line-height: $height;
+
+  font-size: 2em;
+  color: $body-bg;
+  background-color: $style-color-1;
+  box-shadow: $shadow;
+
+  border-radius: 50%;
+  height: $height;
+  width: $height;
+
+  transition: 0.5s ease-in-out;
+  &:hover {
+    transform: rotate(180deg);
+  }
+
+  &:before {
+    $width: -0.3em;
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: $width;
+    bottom: $width;
+    right: $width;
+    left: $width;
+    border-radius: 50%;
+
+    background-color: rgba(254, 74, 73, 0.4);
+    box-shadow: $shadow;
+  }
+}
