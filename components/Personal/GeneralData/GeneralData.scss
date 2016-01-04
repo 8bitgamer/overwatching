@@ -7,33 +7,31 @@
   height: $height;
 
   .image-card, .stat-card {
-    transform: skewX(-10deg);
     margin: 0.5em;
   }
   .image-card {
     flex-grow: 1;
     height: 100%;
-    margin: 0.5em;
     overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
     background-position-y: 0%;
     background-position-x: 50%;
     &:first-child {
-      margin-left: 2.5em;
+      margin-left: 0;
     }
     &:nth-last-child(2) {
-      margin-right: 2.5em;
+      margin-right: 0;
     }
 
     .title {
       overflow: hidden;
       position: absolute;
-      top: 0;
-      bottom: 0;
       right: 0;
       left: 0;
-
-      line-height: 10em;
       text-align: center;
 
       font-size: 3em;
@@ -50,7 +48,7 @@
     flex-grow: 3;
 
     &.open:last-child {
-      margin-right: 2.5em;
+      margin-right: 0;
     }
   }
 
