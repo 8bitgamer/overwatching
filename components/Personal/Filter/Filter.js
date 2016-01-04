@@ -4,10 +4,40 @@ import './Filter.scss';
 class Filter extends Component {
   static propTypes = {
     onChange: PropTypes.func,
+    onReset: PropTypes.func,
+    filterStatus: PropTypes.object,
+  };
+  state = {
+    timePeriod: 'week',
+    map: 'all',
+    hero: '',
+  };
+  static defaultFilterStatus = {
+    timePeriod: 'week',
+    map: 'all',
+    hero: '',
   };
 
-  static handleChange(type, event) {
-    this.props.onChange(type, event.target.value);
+  handleChange(type, event) {
+    const state = this.state;
+    state[type] = event.target.value;
+    this.setState(state);
+    this.props.onChange(state);
+  }
+  handleReset() {
+    const newFilterState = JSON.parse(JSON.stringify(Filter.defaultFilterStatus));
+    this.setState(newFilterState);
+    this.props.onReset(newFilterState);
+  }
+  static filterEqualsDefault(filter1) {
+    return (function loopThroughObj(objKeys, status) {
+      const [key, ...keys] = objKeys;
+      const newStatus = status && (filter1[key] === Filter.defaultFilterStatus[key]);
+      if (keys.length === 0 || newStatus === false ) {
+        return newStatus;
+      }
+      return loopThroughObj(keys, newStatus);
+    })(Object.keys(filter1), true);
   }
   render() {
     return (
@@ -17,8 +47,8 @@ class Filter extends Component {
             <div className="input-label">Time Period</div>
             <div className="select-elem">
               <div className="style-chevron"></div>
-              <select onChange={Filter.handleChange.bind(this, 'timePeriod')}>
-                <option selected="selected" value="week">Last Week</option>
+              <select value={this.state.timePeriod} onChange={this.handleChange.bind(this, 'timePeriod')}>
+                <option value="week">Last Week</option>
                 <option value="month">Last Month</option>
                 <option value="all">All Time</option>
               </select>
@@ -28,7 +58,7 @@ class Filter extends Component {
             <div className="input-label">Map</div>
             <div className="select-elem">
               <div className="style-chevron"></div>
-              <select onChange={Filter.handleChange.bind(this, 'map')}>
+              <select value={this.state.map} onChange={this.handleChange.bind(this, 'map')}>
                 <option value="Dorado">Dorado</option>
                 <option value="Gibraltar">Gibraltar</option>
                 <option value="Hanamura">Hanamura</option>
@@ -37,15 +67,18 @@ class Filter extends Component {
                 <option value="Numbani">Numbani</option>
                 <option value="Hollywood">Hollywood</option>
                 <option value="King's Row">King's Row</option>
-                <option selected="selected" value="all">All Maps</option>
+                <option value="all">All Maps</option>
               </select>
             </div>
           </div>
           <div className="form-section">
             <div className="input-label">Hero Filter</div>
-            <input onChange={Filter.handleChange.bind(this, 'hero')} type="text" placeholder="Hero"/>
+            <input value={this.state.hero} onChange={this.handleChange.bind(this, 'hero')} type="text" placeholder="Hero"/>
           </div>
         </form>
+        {Filter.filterEqualsDefault(this.props.filterStatus) === false ? (
+          <div className="btn reset" onClick={this.handleReset.bind(this)}>Reset</div>
+        ) : ''}
       </div>
     );
   }

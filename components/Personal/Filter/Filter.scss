@@ -3,6 +3,7 @@
 #content-filter {
   $padding: 0.5em;
   $height: 2em;
+  position: relative;
 
   form {
     display: flex;
@@ -38,11 +39,6 @@
               appearance: none;
     }
 
-    button {
-      background-color: $style-color-1;
-      color: $body-bg;
-    }
-
     .select-elem {
       position: relative;
       display: inline-block;
@@ -63,5 +59,20 @@
         pointer-events: none;
       }
     }
+  }
+
+  .btn {
+    background-color: $style-color-1;
+    color: $body-bg;
+    border-radius: 2px;
+  }
+
+  .reset {
+    position: absolute;
+    right: $padding;
+    top: $padding;
+    bottom: $padding;
+    line-height: $height;
+    padding: 0 $padding;
   }
 }

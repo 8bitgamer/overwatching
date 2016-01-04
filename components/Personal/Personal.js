@@ -16,6 +16,10 @@ const tempData = [{
       wins: 400,
       losses: 380,
     },
+    'King\'s Row': {
+      wins: 300,
+      losses: 200,
+    },
   },
 }, {
   name: 'Mei',
@@ -78,7 +82,7 @@ const tempData = [{
 class Personal extends Component {
   state = {
     filter: {
-      timePeriod: 'all',
+      timePeriod: 'week',
       map: 'all',
       hero: '',
     },
@@ -103,10 +107,11 @@ class Personal extends Component {
 
     return filteredData;
   }
-  handleChange(key, value) {
-    const state = this.state;
-    state.filter[key] = value;
-    this.setState(state);
+  handleChange(state) {
+    this.setState({filter: state});
+  }
+  handleReset(defaultFilterStatus) {
+    this.setState({filter: defaultFilterStatus});
   }
   render() {
     const data = Personal
@@ -117,19 +122,18 @@ class Personal extends Component {
         }
         return 1;
       });
-    const heroData = data.length === 1 ? '' : (
-      <div>
-        <h1>Hero Data</h1>
-        <HeroData data={data} filter={this.state.filter}/>
-      </div>
-    );
+    const isOneHero = (data.length > 1);
     return (
       <div id="Personal">
         <h1>Content Filter</h1>
-        <Filter onChange={this.handleChange.bind(this)}/>
+        <Filter filterStatus={this.state.filter} onChange={this.handleChange.bind(this)} onReset={this.handleReset.bind(this)}/>
         <h1>General Data</h1>
         <GeneralData data={data} filter={this.state.filter}/>
-        {heroData}
+        {isOneHero ? (
+          <div>
+            <h1>Hero Data</h1>
+            <HeroData data={data} filter={this.state.filter}/>
+          </div>) : ''}
       </div>
     );
   }

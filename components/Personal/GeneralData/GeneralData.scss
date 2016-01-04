@@ -21,7 +21,7 @@
     &:first-child {
       margin-left: 2.5em;
     }
-    &:last-child {
+    &:nth-last-child(2) {
       margin-right: 2.5em;
     }
 
@@ -40,10 +40,18 @@
       color: $body-bg;
       text-shadow: 0 0 5px rgba(0,0,0, 0.5);
     }
+
+    &.open:nth-last-child(2) {
+      margin: 0.5em;
+    }
   }
 
   .stat-card {
     flex-grow: 3;
+
+    &.open:last-child {
+      margin-right: 2.5em;
+    }
   }
 
   .closed {
@@ -51,9 +59,6 @@
     flex-grow: 0;
   }
 
-  .open.image-card:hover {
-    flex-grow: 1;
-  }
 
   .best-map-image {
     background-size: cover;
