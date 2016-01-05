@@ -25,23 +25,31 @@
       padding: 0 1em;
 
       .Nav-link {
-        padding: 0.5em 0.5em;
+        padding: 0.5em;
         color: $text-color;
         text-decoration: none;
         text-transform: uppercase;
         cursor: pointer;
 
-        &.color-1:hover {
-          border-bottom: 3px solid $style-color-1;
+        &.color-1{
+          &:hover, &.selected {
+            border-bottom: 3px solid $style-color-1;
+          }
         }
-        &.color-2:hover {
-          border-bottom: 3px solid $style-color-2;
+        &.color-2{
+          &:hover, &.selected {
+            border-bottom: 3px solid $style-color-2;
+          }
         }
-        &.color-3:hover {
-          border-bottom: 3px solid $style-color-3;
+        &.color-3{
+          &:hover, &.selected {
+            border-bottom: 3px solid $style-color-3;
+          }
         }
-        &.color-4:hover {
-          border-bottom: 3px solid $style-color-4;
+        &.color-4{
+          &:hover, &.selected {
+            border-bottom: 3px solid $style-color-4;
+          }
         }
       }
     }
