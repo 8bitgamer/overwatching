@@ -3,7 +3,12 @@ import './Header.scss';
 import Link from '../Link';
 
 class Header extends Component {
+  state = {
+    signedIn: true,
+  };
+
   render() {
+    console.log(this.state);
     return (
       <div id="Header">
         <div className="Left-header">
@@ -14,15 +19,21 @@ class Header extends Component {
             <li className="Nav-item">
               <a className="Nav-link color-1" href="/" onClick={Link.handleClick}>Home</a>
             </li>
-            <li className="Nav-item">
-              <a className="Nav-link color-2" href="/personal" onClick={Link.handleClick}>Personal</a>
-            </li>
+            {this.state.signedIn === true ?
+              <li className="Nav-item">
+                <a className="Nav-link color-2" href="/personal" onClick={Link.handleClick}>Personal</a>
+              </li> : ''}
             <li className="Nav-item">
               <a className="Nav-link color-3" href="/general" onClick={Link.handleClick}>General</a>
             </li>
-            <li className="Nav-item">
-              <a className="Nav-link color-4" href="/account" onClick={Link.handleClick}>Account</a>
-            </li>
+            {this.state.signedIn === true ?
+              <li className="Nav-item">
+                <a className="Nav-link color-4" href="/account" onClick={Link.handleClick}>Account</a>
+              </li>
+              :
+              <li className="Nav-item">
+                <a className="Nav-link color-4" href="/sign-in" onClick={Link.handleClick}>Sign In/Sign Up</a>
+              </li>}
           </ul>
         </div>
       </div>
