@@ -1,0 +1,55 @@
+@import '../../variables.scss';
+
+#Data-Input-Form {
+  $width: 30em;
+  $height: 40em;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -20em 0 0 -15em;
+
+  width: $width;
+  height: $height;
+  box-shadow: 0 0 5em rgba(0,0,0,0.5);
+
+  $elem-height: 2em;
+  .winLoss, .endButtons {
+    display: flex;
+    justify-content: center;
+    .button {
+      margin: 0.5em;
+      height: $elem-height;
+      line-height: $elem-height;
+      flex-grow: 1;
+
+      transition: 0.25s ease-in-out;
+
+      &:first-child {
+        margin-right: 0.25em;
+      }
+      &:last-child {
+        margin-left: 0.25em;
+      }
+    }
+    .win {
+      &.select {
+        color: $body-bg;
+        background-color: $style-color-4;
+      }
+    }
+    .loss {
+      &.select {
+        color: $body-bg;
+        background-color: $style-color-1;
+      }
+    }
+    .close {
+      color: $body-bg;
+      background-color: $style-color-1;
+    }
+    .save {
+      background-color: $style-color-4;
+      color: $body-bg;
+    }
+  }
+}
