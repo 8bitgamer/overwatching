@@ -85,6 +85,7 @@ const config = {
     return [
       require('postcss-import')({ addDependencyTo: bundler }),
       require('precss')(),
+      require('postcss-color-function')(),
       require('autoprefixer')({
         browsers: AUTOPREFIXER_BROWSERS,
       }),

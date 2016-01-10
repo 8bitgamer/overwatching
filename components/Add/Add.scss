@@ -36,7 +36,7 @@ $shadow: 0 0 10px rgba(0,0,0,0.2);
     left: $width;
     border-radius: 50%;
 
-    background-color: rgba(254, 74, 73, 0.4);
+    background-color: color($style-color-1 a(40%));
     box-shadow: $shadow;
   }
 }

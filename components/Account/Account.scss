@@ -41,30 +41,32 @@
       li {
         $padding: 0.5em;
         $height: 2em;
+        $width: 200px;
         height: $height;
         line-height: $height;
         display: flex;
         justify-content: center;
         margin: 20px 0;
         .title {
-          width: 200px;
+          width: $width;
           text-transform: capitalize;
           margin: 0 0.5em 0 0;
         }
         .value {
-          width: 200px;
+          width: $width;
           height: $height;
           border-radius: $br;
           background-color: $body-bg-dark;
           text-align: center;
         }
 
+        @mixin inputField $height, $width;
         select, .button {
-          height: $height;
-          width: 200px;
-        }
-        .select-elem{
-          height: $height;
+          margin: 0 0 0 0.5em;
+
+          &.left {
+            margin: 0 0.5em 0 0;
+          }
         }
       }
     }
